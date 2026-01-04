@@ -8,6 +8,8 @@
 - [transitive closure](#transitive-closure)
 - [minimum cost spaning trees](#minimum-cost-spaning-trees)
 - [Dijkstra’s Algorithm – Single Source Shortest Path](#Dijkstras-Algorithm-Single-Source-Shortest-Path)
+- [Floyd-Warshall Algorithm – All-Pairs Shortest Path](#Floyd-Warshall-Algorithm-All-Pairs-Shortest-Path)
+
 
 
 ### basic 
@@ -1007,6 +1009,8 @@ Cost = 1 + 2 + 2 + 3 + 3 + 4 + 5 + 6 = 26
 Here’s a clean and structured set of notes for **Floyd-Warshall Algorithm** that you can copy to your GitHub repository:
 
 ---
+
+###### Floyd Warshall Algorithm All-Pairs Shortest Path
 
 # 🔁 Floyd-Warshall Algorithm – All-Pairs Shortest Path
 
