@@ -2,6 +2,8 @@
 
 ## INDEX 
 - [basic](#basic)
+- [types](#types)
+- [graph representation](#graph-representation)
 
 
 
@@ -14,6 +16,7 @@
 
 ---
 
+###### types 
 ---
 
 ## 🔷 Types of Graphs (Data Structures)
@@ -70,5 +73,15 @@
 * **DAG (Directed Acyclic Graph)** – no cycles (used in scheduling)
 ---
 
+## graph representation
 
-```
+#### 1. Adjacency matrix representation 
+* graph represented in a form of matrix of size v*v
+* filled with either 1 or 0
+
+
+#### 2. Adjacency list representation 
+* every vertex of a graph contains list of its adjacent vertices 
+* space complexity O(|V|+|E|)
+
+
