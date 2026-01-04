@@ -40,6 +40,18 @@
 * **Connected Graph** – path exists between every pair of vertices
 * **Disconnected Graph** – at least one vertex is unreachable
 
+Connected Graph 
+
+Connected Graph:
+A graph is **connected** if there is a **path between every pair of vertices**.
+Disconnected Graph:
+If **any vertex cannot be reached** from another, the graph is disconnected.
+Connected Component:
+Each **maximal connected subgraph** in a disconnected graph.
+
+Example :
+If all nodes can reach each other → connected; otherwise → multiple connected components.
+
 ---
 
 ### 🔹 4. Based on Cycles
