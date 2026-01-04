@@ -115,8 +115,8 @@ Adjacency Matrix is preferred for dense graphs due to O(1) edge lookup, while Ad
 * traverse without getting into looping
 
 ### TWO GRAPH TRAVERSAL TECHNIQUES
-* **DFS**(DEPTH FIRST SEARCH) -[DFS](#DFS)
-* **BFS**(BREADTH FIRST SEARCH)
+* **DFS**(DEPTH FIRST SEARCH) - [DFS](#DFS)
+* **BFS**(BREADTH FIRST SEARCH)  - [BFS](#BFS)
 
 ## DFS
 ---
@@ -154,9 +154,155 @@ Adjacency Matrix is preferred for dense graphs due to O(1) edge lookup, while Ad
 
 ---
 
-### ⭐ Key Points (Interview Ready)
-
 ✔️ DFS explores **depth first**
 ✔️ Uses **stack (explicit or recursion)**
 ✔️ Involves **backtracking**
+
+
+### DFS Traversal (Worked Example)
+
+### 🔹 Given
+
+* **Graph vertices**: `A B C D E F G`
+* **Traversal technique**: **DFS (Depth First Search)**
+* **Data Structure used**: **Stack**
+* **Auxiliary arrays**:
+
+  * `status[]` → visited / not visited
+  * `output[]` → traversal order
+
+---
+
+## 🔹 Initial Setup
+
+1. **Status Array**
+
+```
+A B C D E F G
+0 0 0 0 0 0 0   (0 = not visited, 1 = visited)
+```
+
+2. **Stack size** = number of vertices = **7**
+
+3. **Output** → empty initially
+
+---
+
+## 🔹 Step-by-Step DFS Traversal
+
+### 🟢 Step 1: Start from vertex **A**
+
+* Visit `A`
+* Push `A` into stack
+
+```
+Stack: A
+Output: A
+Status: 1 0 0 0 0 0 0
+```
+
+---
+
+### 🟢 Step 2: Visit unvisited adjacent of **A**
+
+* Choose `B`
+* Push `B`
+
+```
+Stack: B A
+Output: A B
+Status: 1 1 0 0 0 0 0
+```
+
+---
+
+### 🟢 Step 3: Visit unvisited adjacent of **B**
+
+* Choose `C`
+* Push `C`
+
+```
+Stack: C B A
+Output: A B C
+Status: 1 1 1 0 0 0 0
+```
+
+---
+
+### 🟢 Step 4: Visit unvisited adjacent of **C**
+
+* Choose `E`
+* Push `E`
+
+```
+Stack: E C B A
+Output: A B C E
+Status: 1 1 1 0 1 0 0
+```
+
+---
+
+### 🟢 Step 5: Visit unvisited adjacent of **E**
+
+* Choose `D`
+* Push `D`
+
+```
+Stack: D E C B A
+Output: A B C E D
+Status: 1 1 1 1 1 0 0
+```
+
+---
+
+### 🔁 Backtracking Begins
+
+* `D` has no unvisited adjacent → **pop**
+* From `E`, visit `F`
+
+```
+Stack: F E C B A
+Output: A B C E D F
+Status: 1 1 1 1 1 1 0
+```
+
+---
+
+### 🔁 Continue Backtracking
+
+* From `F`, visit `G`
+
+```
+Stack: G F E C B A
+Output: A B C E D F G
+Status: 1 1 1 1 1 1 1
+```
+
+---
+
+## ✅ Final DFS Traversal Order
+
+```
+A → B → C → E → D → F → G
+```
+
+---
+
+## ⭐ Key Observations (Exam / Interview)
+
+* DFS uses **Stack**
+* Goes **deep before wide**
+* Uses **backtracking**
+* Time Complexity: **O(V + E)**
+* Space Complexity: **O(V)**
+
+---
+
+If you want next:
+✔️ **Same graph in BFS**
+✔️ **Dry run table (stack | status | output)**
+✔️ **C++ DFS code (recursive + stack)**
+
+Just say 🔥
+
 
