@@ -748,14 +748,10 @@ Absolutely! Here's a clean and structured set of notes you can copy to your GitH
 
 ---
 
-# 🧠 Prim's Algorithm – Minimum Spanning Tree (MST)
-
-## 📌 Overview
-Prim's algorithm is a greedy algorithm that finds a **Minimum Spanning Tree (MST)** for a weighted undirected graph. It starts from an arbitrary node and grows the MST by adding the cheapest edge from the tree to a vertex not yet in the tree.
-
+### 🧠 Prim's Algorithm – Minimum Spanning Tree (MST)
 ---
 
-## 🧾 Pseudocode
+### 🧾 Pseudocode
 
 ```plaintext
 MST-PRIM(G, w, r) // G: graph, w: weight function, r: initial vertex
@@ -774,7 +770,7 @@ MST-PRIM(G, w, r) // G: graph, w: weight function, r: initial vertex
 
 ---
 
-## 🧮 Key Concepts
+### 🧮 Key Concepts
 
 - **key[u]**: Minimum weight to connect vertex `u` to the MST.
 - **π[u]**: Parent of vertex `u` in the MST.
@@ -783,18 +779,18 @@ MST-PRIM(G, w, r) // G: graph, w: weight function, r: initial vertex
 
 ---
 
-## ✅ Correctness
+#### ✅ Correctness
 Prim’s algorithm **always yields a valid Minimum Spanning Tree** for a connected, weighted, undirected graph.
 
 ---
 
-## ⏱️ Time Complexity
+### ⏱️ Time Complexity
 - **Using Binary Heap**: \( O(|E| \log |V|) \)
 - **Using Fibonacci Heap**: \( O(|V| \log |V| + |E|) \)
 
 ---
 
-## 📊 Example Graph
+### 📊 Example Graph
 A small graph with vertices {1, 2, 3, 4} and edges labeled with weights (e.g., 8, 10, 8) can be used to visualize how the MST grows step-by-step.
 
 ---
