@@ -7,12 +7,12 @@
 
 
 ### basic 
-```
-non linear data structure
-it consist of nodes and edges
-G = (V,E)
+---
+* non linear data structure
+* it consist of nodes and edges
+* G = (V,E)
 
-```
+---
 
 Here is a **complete, clean, exam + interview-ready list of TYPES OF GRAPHS**, structured and easy to remember 👇
 
