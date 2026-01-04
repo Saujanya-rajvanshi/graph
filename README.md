@@ -833,6 +833,41 @@ Here’s a clean and structured set of notes for **Dijkstra’s Algorithm** that
 
 ---
 
+---
+
+## ⚔️ Prim’s vs Kruskal’s Algorithm – MST Comparison
+
+### 📌 When to Use
+
+| Algorithm        | Preferred When…                                      |
+|------------------|------------------------------------------------------|
+| **Prim’s**       | Graph is **dense** (many edges), \( E = O(V^2) \)    |
+| **Kruskal’s**    | Graph is **sparse** (few edges), \( E = O(V) \)      |
+|                  | Edges are already sorted or sortable in linear time  |
+
+---
+
+### 🔍 Key Differences
+
+| Feature               | **Prim’s Algorithm**                                      | **Kruskal’s Algorithm**                                  |
+|-----------------------|-----------------------------------------------------------|-----------------------------------------------------------|
+| **Approach**          | Vertex-based: grows MST one vertex at a time              | Edge-based: adds edges in increasing weight order         |
+| **Graph Representation** | Adjacency matrix                                       | Edge list                                                 |
+| **Initialization**    | Starts from an arbitrary vertex                           | Starts with all vertices as separate trees (forest)       |
+| **Edge Selection**    | Chooses minimum weight edge from connected vertices       | Chooses minimum weight edge from all edges                |
+| **Cycle Detection**   | Implicit via visited vertices                             | Explicit via Union-Find (Disjoint Set Union)              |
+| **Suitable For**      | Dense graphs                                              | Sparse graphs                                              |
+| **Starting Point**    | Requires a starting vertex                                | No specific starting point                                |
+
+---
+
+### ✅ Summary
+
+- **Prim’s** is ideal for dense graphs and uses a priority queue to grow the MST from a starting vertex.
+- **Kruskal’s** is better for sparse graphs and builds the MST by sorting edges and connecting disjoint sets.
+
+---
+
 ##### Dijkstras Algorithm Single Source Shortest Path
 
 # 🛣️ Dijkstra’s Algorithm – Single Source Shortest Path
@@ -927,11 +962,9 @@ Dijkstra’s algorithm **correctly computes shortest paths** from the source to 
 
 
 
-
 ## 📊 Example
 
 <img width="163" height="85" alt="image" src="https://github.com/user-attachments/assets/bc54d763-aece-409b-8134-bd2027069256" />
-
 
 ### Given Edges and Weights:
 ```
@@ -968,41 +1001,6 @@ Dijkstra’s algorithm **correctly computes shortest paths** from the source to 
 ```
 Cost = 1 + 2 + 2 + 3 + 3 + 4 + 5 + 6 = 26
 ```
-
----
-
----
-
-## ⚔️ Prim’s vs Kruskal’s Algorithm – MST Comparison
-
-### 📌 When to Use
-
-| Algorithm        | Preferred When…                                      |
-|------------------|------------------------------------------------------|
-| **Prim’s**       | Graph is **dense** (many edges), \( E = O(V^2) \)    |
-| **Kruskal’s**    | Graph is **sparse** (few edges), \( E = O(V) \)      |
-|                  | Edges are already sorted or sortable in linear time  |
-
----
-
-### 🔍 Key Differences
-
-| Feature               | **Prim’s Algorithm**                                      | **Kruskal’s Algorithm**                                  |
-|-----------------------|-----------------------------------------------------------|-----------------------------------------------------------|
-| **Approach**          | Vertex-based: grows MST one vertex at a time              | Edge-based: adds edges in increasing weight order         |
-| **Graph Representation** | Adjacency matrix                                       | Edge list                                                 |
-| **Initialization**    | Starts from an arbitrary vertex                           | Starts with all vertices as separate trees (forest)       |
-| **Edge Selection**    | Chooses minimum weight edge from connected vertices       | Chooses minimum weight edge from all edges                |
-| **Cycle Detection**   | Implicit via visited vertices                             | Explicit via Union-Find (Disjoint Set Union)              |
-| **Suitable For**      | Dense graphs                                              | Sparse graphs                                              |
-| **Starting Point**    | Requires a starting vertex                                | No specific starting point                                |
-
----
-
-### ✅ Summary
-
-- **Prim’s** is ideal for dense graphs and uses a priority queue to grow the MST from a starting vertex.
-- **Kruskal’s** is better for sparse graphs and builds the MST by sorting edges and connecting disjoint sets.
 
 ---
 
