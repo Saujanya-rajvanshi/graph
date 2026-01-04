@@ -6,6 +6,7 @@
 - [graph representation](#graph-representation)
 - [graph traversal](#graph-traversal)
 - [transitive closure](#transitive-closure)
+- [minimum cost spaning trees](#minimum-cost-spaning-trees)
 
 
 
@@ -523,5 +524,281 @@ A → D → E → B → C → F → G
 
 * **Adjacency** → direct edge only
 * **Reachability** → direct + indirect path
+
+## minimum cost spaning trees
+
+* **Spanning Tree**: Connects **all vertices**, **no cycles**, **V − 1 edges**
+
+* **Minimum Spanning Tree (MST)**: Spanning tree with **minimum total edge weight**
+
+* **Graph type**: **Connected + weighted + undirected** graph
+
+* **Cost of MST**: Sum of weights of selected edges (minimum)
+
+* **Algorithms used**: **Prims** and **Kruskals**  
+
+* **Key property**:
+  No cycles, still fully connected ✔
+
+  <img width="631" height="158" alt="image" src="https://github.com/user-attachments/assets/9e5e9b23-94ee-4cb0-b264-f7658e146231" />
+
+#### Prims
+---
+
+## 🌳 Prim’s Algorithm (Minimum Spanning Tree)
+
+**Definition**
+
+* Prim’s algorithm constructs a **Minimum Spanning Tree (MST)**.
+* It grows the tree **one vertex at a time**.
+* Uses **greedy approach**.
+
+**Key Points**
+
+* Starts from **any one vertex**.
+* At each step, picks the **minimum weight edge** connecting:
+
+  * a vertex **inside the tree**
+  * to a vertex **outside the tree**
+* Stops when **all vertices are included**.
+* Total iterations = **(n − 1)**
+
+---
+
+## 📌 Representation Used
+
+```
+vertex ( parent , cost )
+```
+
+---
+
+## 🧮 Example (same format as image)
+
+### Step 1
+
+```
+Tree Vertices:
+a ( - , 0 )
+
+Remaining Vertices in Q:
+b ( - , ∞ )
+c ( - , ∞ )
+d ( - , ∞ )
+e ( - , ∞ )
+```
+
+---
+
+### Step 2
+
+```
+Selected Vertex:
+b ( a , 4 )
+
+Tree Vertices:
+a ( - , 0 )
+b ( a , 4 )
+
+Remaining Vertices in Q:
+c ( b , 8 )
+d ( - , ∞ )
+e ( - , ∞ )
+```
+
+---
+
+### Step 3
+
+```
+Selected Vertex:
+c ( b , 8 )
+
+Tree Vertices:
+a ( - , 0 )
+b ( a , 4 )
+c ( b , 8 )
+
+Remaining Vertices in Q:
+d ( c , 7 )
+e ( - , ∞ )
+```
+
+---
+
+### Step 4
+
+```
+Selected Vertex:
+d ( c , 7 )
+
+Tree Vertices:
+a ( - , 0 )
+b ( a , 4 )
+c ( b , 8 )
+d ( c , 7 )
+
+Remaining Vertices in Q:
+e ( d , 2 )
+```
+
+---
+
+### Step 5
+
+```
+Selected Vertex:
+e ( d , 2 )
+
+Tree Vertices:
+a ( - , 0 )
+b ( a , 4 )
+c ( b , 8 )
+d ( c , 7 )
+e ( d , 2 )
+```
+
+### Remaining Vertices in Q
+
+```
+e ( d , 9 )
+h ( i , 7 )
+g ( i , 6 )
+```
+
+---
+
+### Step – Select Minimum
+
+```
+Selected:
+g ( i , 6 )
+```
+
+### Tree Vertices
+
+```
+a ( - , 0 )
+b ( a , 4 )
+c ( b , 8 )
+d ( c , 7 )
+i ( c , 2 )
+g ( i , 6 )
+```
+
+---
+
+### Update Remaining Vertices
+
+```
+h ( g , 1 )
+e ( d , 9 )
+```
+
+---
+
+### Step – Select Minimum
+
+```
+Selected:
+h ( g , 1 )
+```
+
+---
+
+### Update Remaining Vertices
+
+```
+e ( h , 2 )
+```
+
+---
+
+### Final Selection
+
+```
+Selected:
+e ( h , 2 )
+```
+
+---
+
+## ✅ Final MST Edges
+
+```
+a – b (4)
+b – c (8)
+c – d (7)
+c – i (2)
+i – g (6)
+g – h (1)
+h – e (2)
+```
+
+---
+
+## 💰 Total Cost of MST
+
+```
+4 + 8 + 7 + 2 + 6 + 1 + 2 = 30
+```
+
+---
+Absolutely! Here's a clean and structured set of notes you can copy to your GitHub repository:
+
+---
+
+# 🧠 Prim's Algorithm – Minimum Spanning Tree (MST)
+
+## 📌 Overview
+Prim's algorithm is a greedy algorithm that finds a **Minimum Spanning Tree (MST)** for a weighted undirected graph. It starts from an arbitrary node and grows the MST by adding the cheapest edge from the tree to a vertex not yet in the tree.
+
+---
+
+## 🧾 Pseudocode
+
+```plaintext
+MST-PRIM(G, w, r) // G: graph, w: weight function, r: initial vertex
+1. for each u ∈ V[G]                      // for all vertices in the graph
+2.     key[u] ← ∞                         // set cost of each vertex to ∞
+3.     π[u] ← NIL                         // set parent of each vertex to NIL
+4. key[r] ← 0                             // set cost of initial vertex to 0
+5. Q ← V[G]                               // add all vertices to a priority queue
+6. while Q ≠ ∅                            // repeat until Q is empty
+7.     u ← EXTRACT-MIN(Q)                // extract min-cost vertex from Q
+8.     for each v ∈ Adj[u]               // for all adjacent vertices
+9.         if v ∈ Q and w(u, v) < key[v] // if v is in Q and edge weight is less
+10.            π[v] ← u                  // update parent of v to u
+11.            key[v] ← w(u, v)          // update cost of v
+```
+
+---
+
+## 🧮 Key Concepts
+
+- **key[u]**: Minimum weight to connect vertex `u` to the MST.
+- **π[u]**: Parent of vertex `u` in the MST.
+- **Q**: Priority queue containing all vertices not yet included in MST.
+- **EXTRACT-MIN(Q)**: Retrieves vertex with the smallest key value.
+
+---
+
+## ✅ Correctness
+Prim’s algorithm **always yields a valid Minimum Spanning Tree** for a connected, weighted, undirected graph.
+
+---
+
+## ⏱️ Time Complexity
+- **Using Binary Heap**: \( O(|E| \log |V|) \)
+- **Using Fibonacci Heap**: \( O(|V| \log |V| + |E|) \)
+
+---
+
+## 📊 Example Graph
+A small graph with vertices {1, 2, 3, 4} and edges labeled with weights (e.g., 8, 10, 8) can be used to visualize how the MST grows step-by-step.
+
+---
+
+Let me know if you'd like this formatted as a README or want to add diagrams or code implementations!
 
 
