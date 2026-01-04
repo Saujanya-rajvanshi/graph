@@ -5,7 +5,7 @@
 - [types](#types) 
 - [graph representation](#graph-representation)
 - [graph traversal](#graph-traversal)
-- [transitive closure](transitive-closure)
+- [transitive closure](#transitive-closure)
 
 
 
