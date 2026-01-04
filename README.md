@@ -9,7 +9,7 @@
 - [minimum cost spaning trees](#minimum-cost-spaning-trees)
 - [Dijkstra’s Algorithm – Single Source Shortest Path](#Dijkstras-Algorithm-Single-Source-Shortest-Path)
 - [Floyd-Warshall Algorithm – All-Pairs Shortest Path](#Floyd-Warshall-Algorithm-All-Pairs-Shortest-Path)
-
+- [striver questions](#striver-question)
 
 
 ### basic 
