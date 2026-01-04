@@ -105,21 +105,8 @@
 
 ---
 
-### ⭐ Interview Summary Line
-
-**Adjacency Matrix is preferred for dense graphs due to O(1) edge lookup, while Adjacency List is preferred for sparse graphs because of lower space usage.**
-
----
-
-If you want:
-✔️ **Time-complexity only short table**
-✔️ **C++ code comparison**
-✔️ **When to choose which (decision tree)**
-
-Just say 👍
-
-
-
+### Interview Summary Line
+Adjacency Matrix is preferred for dense graphs due to O(1) edge lookup, while Adjacency List is preferred for sparse graphs because of lower space usage.
 
 
 ## graph traversal 
@@ -128,7 +115,48 @@ Just say 👍
 * traverse without getting into looping
 
 ### TWO GRAPH TRAVERSAL TECHNIQUES
-* **DFS**(DEPTH FIRST SEARCH)
+* **DFS**(DEPTH FIRST SEARCH) -[DFS](#DFS)
 * **BFS**(BREADTH FIRST SEARCH)
 
-**DFS**
+## DFS
+---
+
+## 🔍 DFS (Depth First Search)
+
+🔹 **Data Structure Used**: **Stack**
+🔹 **Maximum Stack Size**: Total number of vertices in the graph
+
+---
+
+## 🪜 Steps to Implement DFS Traversal
+
+**Step 1️⃣**
+📦 Define a **stack** of size equal to the total number of vertices in the graph.
+
+**Step 2️⃣**
+▶️ Select **any vertex** as the starting point.
+👀 Visit that vertex and **push it onto the stack**.
+
+**Step 3️⃣**
+🔗 From the vertex at the **top of the stack**, visit **any one non-visited adjacent vertex** and **push it onto the stack**.
+
+**Step 4️⃣**
+🔁 Repeat **Step 3** until there is **no new adjacent vertex** to visit from the vertex at the top of the stack.
+
+**Step 5️⃣**
+↩️ If no new vertex is found, perform **backtracking** by **popping one vertex** from the stack.
+
+**Step 6️⃣**
+🔄 Repeat **Steps 3, 4, and 5** until the **stack becomes empty**.
+
+**Step 7️⃣**
+✅ When the stack is empty, DFS traversal is complete and the **final spanning tree** is obtained.
+
+---
+
+### ⭐ Key Points (Interview Ready)
+
+✔️ DFS explores **depth first**
+✔️ Uses **stack (explicit or recursion)**
+✔️ Involves **backtracking**
+
