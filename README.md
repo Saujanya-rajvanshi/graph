@@ -573,7 +573,8 @@ vertex ( parent , cost )
 
 ---
 
-## 🧮 Example (same format as image)
+## 🧮 Example 
+<img width="184" height="96" alt="image" src="https://github.com/user-attachments/assets/15dbfaee-da5f-4ef7-8c70-158a463e5140" />
 
 ### Step 1
 
@@ -788,13 +789,221 @@ Prim’s algorithm **always yields a valid Minimum Spanning Tree** for a connect
 - **Using Binary Heap**: \( O(|E| \log |V|) \)
 - **Using Fibonacci Heap**: \( O(|V| \log |V| + |E|) \)
 
----
-
-### 📊 Example Graph
-A small graph with vertices {1, 2, 3, 4} and edges labeled with weights (e.g., 8, 10, 8) can be used to visualize how the MST grows step-by-step.
 
 ---
 
-Let me know if you'd like this formatted as a README or want to add diagrams or code implementations!
+## 🌉 Kruskal's Algorithm – Minimum Spanning Tree (MST)
+
+### 📌 Overview
+Kruskal's algorithm is a **greedy algorithm** used to find the **Minimum Spanning Tree (MST)** of a **weighted, connected, undirected graph**. It builds the MST by selecting edges in increasing order of weight, ensuring no cycles are formed.
+
+---
+
+### 🧾 Steps of Kruskal's Algorithm
+
+1. **Sort all edges** in non-decreasing order of their weights.
+2. **Initialize MST** as an empty set.
+3. **For each edge (u, v)** in sorted order:
+   - If `u` and `v` belong to **different trees** (i.e., no cycle is formed):
+     - **Add edge (u, v)** to the MST.
+     - **Union** the sets containing `u` and `v`.
+
+---
+
+### 🧮 Key Concepts
+
+- **Greedy Choice**: Always pick the smallest weight edge that doesn't form a cycle.
+- **Cycle Detection**: Use **Disjoint Set Union (DSU)** or **Union-Find** data structure.
+- **Edge Sorting**: Crucial for the greedy approach.
+
+---
+
+## ✅ Correctness
+Kruskal’s algorithm **always yields an optimal MST** for a connected, undirected, weighted graph.
+
+---
+
+## ⏱️ Time Complexity
+- **Sorting edges**: \( O(E \log E) \)
+- **Union-Find operations**: \( O(E \cdot \alpha(V)) \), where \( \alpha \) is the inverse Ackermann function.
+
+---
+
+Here’s a clean and structured set of notes for **Dijkstra’s Algorithm** that you can copy to your GitHub repository:
+
+---
+
+##### Dijkstras Algorithm Single Source Shortest Path
+
+# 🛣️ Dijkstra’s Algorithm – Single Source Shortest Path
+
+## 📌 Overview
+Dijkstra’s algorithm finds the **shortest path** from a **single source vertex** to all other vertices in a **weighted, directed graph** with **non-negative edge weights**.
+
+---
+
+## 🧾 Pseudocode
+
+```plaintext
+Dijkstra(G, w, s)
+1. Initialize-Single-Source(G, s)
+2. S = ∅
+3. Q = G.V
+4. while Q ≠ ∅
+5.     u = Extract-Min(Q)
+6.     S = S ∪ {u}
+7.     for each vertex v ∈ G.Adj[u]
+8.         Relax(u, v, w)
+
+Relax(u, v, w)
+1. if v.d > u.d + w(u, v)
+2.     v.d = u.d + w(u, v)
+3.     v.π = u
+
+Initialize-Single-Source(G, s)
+1. for each vertex v ∈ G.V
+2.     v.d = ∞
+3.     v.π = NIL
+4. s.d = 0
+```
+
+---
+
+## 🧮 Key Concepts
+
+- **v.d**: Current shortest distance from source `s` to vertex `v`.
+- **v.π**: Predecessor of `v` on the shortest path.
+- **Relaxation**: Updates `v.d` if a shorter path is found via `u`.
+
+### Relaxation Formula:
+\[
+v.d = \min(v.d, u.d + w(u,v))
+\]
+
+---
+
+## ✅ Correctness
+Dijkstra’s algorithm **correctly computes shortest paths** from the source to all reachable vertices, provided all edge weights are non-negative.
+
+---
+
+## ⏱️ Time Complexity
+- **Using Binary Heap + Adjacency List**: \( O((V + E) \log V) \)
+- **Using Fibonacci Heap**: \( O(E + V \log V) \)
+
+---
+
+## 📊 Example Graph
+
+### Vertices: S, A, B, C, D  
+### Edges and Weights:
+- S → A = 10  
+- S → C = 5  
+- C → A = 3  
+- C → D = 2  
+- A → B = 1  
+- D → B = 6  
+- C → B = 9  
+
+### Step-by-Step Execution:
+1. **Start at S**:  
+   - S.d = 0  
+   - A.d = ∞ → updated to 10  
+   - C.d = ∞ → updated to 5  
+
+2. **Extract C (5)**:  
+   - A.d = min(10, 5+3) = 8  
+   - D.d = min(∞, 5+2) = 7  
+
+3. **Extract D (7)**:  
+   - B.d = min(∞, 7+6) = 13  
+
+4. **Extract A (8)**:  
+   - B.d = min(13, 8+1) = 9  
+
+5. **Extract B (9)**: Final shortest path tree formed.
+
+---
+
+
+
+
+## 📊 Example
+
+<img width="163" height="85" alt="image" src="https://github.com/user-attachments/assets/bc54d763-aece-409b-8134-bd2027069256" />
+
+
+### Given Edges and Weights:
+```
+<c, d> = 1
+<c, f> = 2
+<d, e> = 2
+<a, b> = 3
+<g, h> = 3
+<b, c> = 4
+<e, f> = 5
+<a, d> = 6
+<b, e> = 8
+<d, g> = 9
+<b, d> = 70
+```
+
+### Sorted Edge List:
+1. <c, d> = 1  
+2. <c, f> = 2  
+3. <d, e> = 2  
+4. <a, b> = 3  
+5. <g, h> = 3  
+6. <b, c> = 4  
+7. <e, f> = 5  
+8. <a, d> = 6  
+9. <b, e> = 8  
+10. <d, g> = 9  
+11. <b, d> = 70  
+
+### Selected Edges for MST:
+- <c, d>, <c, f>, <d, e>, <a, b>, <g, h>, <b, c>, <e, f>, <a, d>
+
+### Final MST Cost:
+```
+Cost = 1 + 2 + 2 + 3 + 3 + 4 + 5 + 6 = 26
+```
+
+---
+
+---
+
+## ⚔️ Prim’s vs Kruskal’s Algorithm – MST Comparison
+
+### 📌 When to Use
+
+| Algorithm        | Preferred When…                                      |
+|------------------|------------------------------------------------------|
+| **Prim’s**       | Graph is **dense** (many edges), \( E = O(V^2) \)    |
+| **Kruskal’s**    | Graph is **sparse** (few edges), \( E = O(V) \)      |
+|                  | Edges are already sorted or sortable in linear time  |
+
+---
+
+### 🔍 Key Differences
+
+| Feature               | **Prim’s Algorithm**                                      | **Kruskal’s Algorithm**                                  |
+|-----------------------|-----------------------------------------------------------|-----------------------------------------------------------|
+| **Approach**          | Vertex-based: grows MST one vertex at a time              | Edge-based: adds edges in increasing weight order         |
+| **Graph Representation** | Adjacency matrix                                       | Edge list                                                 |
+| **Initialization**    | Starts from an arbitrary vertex                           | Starts with all vertices as separate trees (forest)       |
+| **Edge Selection**    | Chooses minimum weight edge from connected vertices       | Chooses minimum weight edge from all edges                |
+| **Cycle Detection**   | Implicit via visited vertices                             | Explicit via Union-Find (Disjoint Set Union)              |
+| **Suitable For**      | Dense graphs                                              | Sparse graphs                                              |
+| **Starting Point**    | Requires a starting vertex                                | No specific starting point                                |
+
+---
+
+### ✅ Summary
+
+- **Prim’s** is ideal for dense graphs and uses a priority queue to grow the MST from a starting vertex.
+- **Kruskal’s** is better for sparse graphs and builds the MST by sorting edges and connecting disjoint sets.
+
+---
 
 
