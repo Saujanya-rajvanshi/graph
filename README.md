@@ -288,21 +288,179 @@ A → B → C → E → D → F → G
 
 ---
 
-## ⭐ Key Observations (Exam / Interview)
+### BFS 
+---
 
-* DFS uses **Stack**
-* Goes **deep before wide**
-* Uses **backtracking**
-* Time Complexity: **O(V + E)**
-* Space Complexity: **O(V)**
+## 🔍 BFS (Breadth First Search)
+
+🔹 **Data Structure Used**: **Queue**
+🔹 **Maximum Queue Size**: Total number of vertices in the graph
+🔹 **Traversal Style**: **Level by level**
 
 ---
 
-If you want next:
-✔️ **Same graph in BFS**
-✔️ **Dry run table (stack | status | output)**
-✔️ **C++ DFS code (recursive + stack)**
+## 🪜 Steps to Implement BFS Traversal
 
-Just say 🔥
+**Step 1️⃣**
+📦 Define a **queue** of size equal to the total number of vertices in the graph.
 
+**Step 2️⃣**
+▶️ Select **any vertex** as the starting point.
+👀 Visit that vertex and **insert it into the queue**.
 
+**Step 3️⃣**
+🔗 Visit **all non-visited adjacent vertices** of the **front vertex** and **insert them into the queue**.
+
+**Step 4️⃣**
+🚪 If there is **no new adjacent vertex** for the front vertex, **remove (dequeue)** it from the queue.
+
+**Step 5️⃣**
+🔁 Repeat **Steps 3 and 4** until the **queue becomes empty**.
+
+**Step 6️⃣**
+✅ When the queue becomes empty, BFS traversal is complete and the **final spanning tree** is obtained.
+
+---
+
+## ⭐ Key Points (Very Important)
+
+* ✔️ BFS uses **Queue**
+* ✔️ Explores **breadth first (level-wise)**
+* ✔️ No backtracking
+* ✔️ Time Complexity: **O(V + E)**
+* ✔️ Space Complexity: **O(V)**
+
+---
+
+---
+
+## BFS Traversal (WORKED EXAMPLE)
+
+### 🔹 Given
+
+* **Vertices**: `A B C D E F G`
+* **Data Structure**: **Queue**
+* **Auxiliary Arrays**:
+
+  * `visited[]` → visited / not visited
+  * `result[]` → traversal order
+
+---
+
+## 🔹 Initial State
+
+### 🟡 Visited Array
+
+```
+A B C D E F G
+0 0 0 0 0 0 0
+```
+
+### 🟡 Queue
+
+```
+[  ]
+```
+
+### 🟡 Result
+
+```
+[  ]
+```
+
+---
+
+## 🪜 BFS Step-by-Step
+
+### 🟢 Step 1: Select **A** as starting vertex
+
+* Visit `A`
+* Insert `A` into queue
+
+```
+Queue   : A
+Visited : 1 0 0 0 0 0 0
+Result  : A
+```
+
+---
+
+### 🟢 Step 2: Dequeue **A**, insert its unvisited adjacent vertices
+
+* Adjacent of A → `D, E, B`
+* Insert into queue
+
+```
+Queue   : D E B
+Visited : 1 1 0 1 1 0 0
+Result  : A
+```
+
+---
+
+### 🟢 Step 3: Dequeue **D**
+
+* No new unvisited adjacent vertices
+
+```
+Queue   : E B
+Visited : 1 1 0 1 1 0 0
+Result  : A D
+```
+
+---
+
+### 🟢 Step 4: Dequeue **E**
+
+* Adjacent → `C, F`
+* Insert unvisited ones
+
+```
+Queue   : B C F
+Visited : 1 1 1 1 1 1 0
+Result  : A D E
+```
+
+---
+
+### 🟢 Step 5: Dequeue **B**
+
+* No new unvisited adjacent
+
+```
+Queue   : C F
+Result  : A D E B
+```
+
+---
+
+### 🟢 Step 6: Dequeue **C**
+
+* Adjacent → `G`
+* Insert `G`
+
+```
+Queue   : F G
+Visited : 1 1 1 1 1 1 1
+Result  : A D E B C
+```
+
+---
+
+### 🟢 Step 7: Dequeue **F**, then **G**
+
+* No new vertices
+
+```
+Queue   : empty
+Result  : A D E B C F G
+```
+
+---
+
+## ✅ Final BFS Traversal Order
+
+```
+A → D → E → B → C → F → G
+```
+---
