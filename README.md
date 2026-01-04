@@ -1004,4 +1004,77 @@ Cost = 1 + 2 + 2 + 3 + 3 + 4 + 5 + 6 = 26
 
 ---
 
+Here’s a clean and structured set of notes for **Floyd-Warshall Algorithm** that you can copy to your GitHub repository:
+
+---
+
+# 🔁 Floyd-Warshall Algorithm – All-Pairs Shortest Path
+
+## 📌 Overview
+The **Floyd-Warshall Algorithm** is a **dynamic programming** technique used to find the **shortest paths between all pairs of vertices** in a weighted graph.
+
+- Works for **directed and undirected graphs**
+- Handles **positive and negative edge weights**
+- **Fails** if the graph contains a **negative cycle**
+- Also computes the **transitive closure** of a graph
+
+---
+
+## 🧾 Algorithm Steps
+
+1. **Create a matrix** `D` representing the graph’s edge weights.
+2. **Initialize** `D[i][j]` with:
+   - `0` if `i == j`
+   - `w(i, j)` if edge exists
+   - `∞` if no edge exists
+3. For each vertex `k` from `1` to `n`:
+   - For each pair `(i, j)`:
+     - Update `D[i][j] = min(D[i][j], D[i][k] + D[k][j])`
+
+---
+
+## 🧮 Pseudocode
+
+```plaintext
+Floyd-Warshall(w)
+1. n = number of vertices
+2. D⁰ = w
+3. for k = 1 to n
+4.     for i = 1 to n
+5.         for j = 1 to n
+6.             Dᵏ[i][j] = min(Dᵏ⁻¹[i][j], Dᵏ⁻¹[i][k] + Dᵏ⁻¹[k][j])
+7. return Dⁿ
+```
+
+---
+
+## ✅ Correctness
+The algorithm guarantees the shortest path between every pair of vertices **if no negative cycles exist**.
+
+---
+
+## ⏱️ Time Complexity
+- **O(n³)** where `n` is the number of vertices
+
+---
+
+## 📊 Example Use Case
+
+Given a graph with vertices A, B, C, D, E and edge weights:
+
+- A → B = 10  
+- A → C = 30  
+- A → D = 50  
+- B → D = 20  
+- C → D = 10  
+- D → E = 30  
+
+The algorithm iteratively updates the shortest paths using intermediate vertices and computes the final shortest distance matrix.
+
+---
+
+Let me know if you'd like to add a Python implementation or visualize the matrix updates step-by-step!
+
+
+<img width="520" height="297" alt="image" src="https://github.com/user-attachments/assets/1937256f-8754-4f9d-b741-c0a41407463e" />
 
