@@ -1,8 +1,8 @@
 # graph
 
 ## INDEX 
-- [basic](#basic) def
-- [types](#types)
+- [basic](#basic) 
+- [types](#types) 
 - [graph representation](#graph-representation)
 - [graph traversal](#graph-traversal)
 
