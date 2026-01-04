@@ -14,8 +14,6 @@
 
 ---
 
-Here is a **complete, clean, exam + interview-ready list of TYPES OF GRAPHS**, structured and easy to remember 👇
-
 ---
 
 ## 🔷 Types of Graphs (Data Structures)
@@ -70,28 +68,7 @@ Here is a **complete, clean, exam + interview-ready list of TYPES OF GRAPHS**, s
 ### 🔹 7. Directed Special Graphs
 
 * **DAG (Directed Acyclic Graph)** – no cycles (used in scheduling)
-
 ---
-
-## ⭐ One-Line Interview Answer
-
-**Graphs are classified based on direction, weight, connectivity, cycles, and special structural properties.**
-
----
-
-### 📌 Very Short Exam Version
-
-Undirected, Directed, Weighted, Unweighted, Connected, Disconnected, Cyclic, Acyclic, Complete, Bipartite, DAG.
-
----
-
-If you want next:
-✔️ **Graph flow chart**
-✔️ **Real-world examples**
-✔️ **Graph representation (matrix vs list)**
-✔️ **Google interview graph problems**
-
-Just say 👍
 
 
 ```
