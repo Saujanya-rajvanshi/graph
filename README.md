@@ -5,6 +5,7 @@
 - [types](#types) 
 - [graph representation](#graph-representation)
 - [graph traversal](#graph-traversal)
+- [transitive closure](transitive-closure)
 
 
 
@@ -494,3 +495,33 @@ A → D → E → B → C → F → G
 ---
 
 *BFS uses a queue and explores level by level, while DFS uses a stack and explores depth first.*
+
+
+## transitive closure
+
+* Shows **reachability** between all vertex pairs
+* If **u can reach v**, mark **1**, else **0**
+* Final result is a **Boolean matrix**
+* Based on **paths**, not just direct edges
+* Also called **Reachability Matrix**
+* Can be found using **Warshall’s Algorithm**
+
+##### **Adjacency vs Reachability Matrix (One Example)**
+
+**Graph:** 0 → 1 → 2
+
+| From \ To               | 0 | 1 | 2 |
+| ----------------------- | - | - | - |
+| **Adjacency Matrix**    |   |   |   |
+| 0                       | 0 | 1 | 0 |
+| 1                       | 0 | 0 | 1 |
+| 2                       | 0 | 0 | 0 |
+| **Reachability Matrix** |   |   |   |
+| 0                       | 1 | 1 | 1 |
+| 1                       | 0 | 1 | 1 |
+| 2                       | 0 | 0 | 1 |
+
+* **Adjacency** → direct edge only
+* **Reachability** → direct + indirect path
+
+
