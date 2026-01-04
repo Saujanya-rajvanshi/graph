@@ -464,3 +464,21 @@ Result  : A D E B C F G
 A → D → E → B → C → F → G
 ```
 ---
+## 🔹 Difference Between BFS and DFS
+
+| **Aspect**              | **BFS (Breadth First Search)**           | **DFS (Depth First Search)**      |
+| ----------------------- | ---------------------------------------- | --------------------------------- |
+| **Traversal Type**      | Level-by-level                           | Depth-wise                        |
+| **Data Structure Used** | Queue                                    | Stack / Recursion                 |
+| **Exploration Style**   | Visits all neighbors first               | Goes deep before backtracking     |
+| **Backtracking**        | ❌ No                                     | ✅ Yes                             |
+| **Memory Usage**        | Higher                                   | Lower (generally)                 |
+| **Shortest Path**       | ✅ Finds shortest path (unweighted graph) | ❌ Not guaranteed                  |
+| **Implementation**      | Easier                                   | Slightly complex                  |
+| **Use Case**            | Level order traversal, shortest path     | Cycle detection, topological sort |
+| **Time Complexity**     | O(V + E)                                 | O(V + E)                          |
+| **Space Complexity**    | O(V)                                     | O(V)                              |
+
+---
+
+*BFS uses a queue and explores level by level, while DFS uses a stack and explores depth first.*
