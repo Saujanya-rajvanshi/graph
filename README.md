@@ -747,7 +747,6 @@ h – e (2)
 ```
 
 ---
-Absolutely! Here's a clean and structured set of notes you can copy to your GitHub repository:
 
 ---
 
@@ -831,7 +830,6 @@ Kruskal’s algorithm **always yields an optimal MST** for a connected, undirect
 
 ---
 
-Here’s a clean and structured set of notes for **Dijkstra’s Algorithm** that you can copy to your GitHub repository:
 
 ---
 
@@ -1006,8 +1004,6 @@ Cost = 1 + 2 + 2 + 3 + 3 + 4 + 5 + 6 = 26
 
 ---
 
-Here’s a clean and structured set of notes for **Floyd-Warshall Algorithm** that you can copy to your GitHub repository:
-
 ---
 
 ###### Floyd Warshall Algorithm All-Pairs Shortest Path
@@ -1077,7 +1073,6 @@ The algorithm iteratively updates the shortest paths using intermediate vertices
 
 ---
 
-Let me know if you'd like to add a Python implementation or visualize the matrix updates step-by-step!
 
 
 <img width="520" height="297" alt="image" src="https://github.com/user-attachments/assets/1937256f-8754-4f9d-b741-c0a41407463e" />
